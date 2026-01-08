@@ -1,12 +1,13 @@
-import Navbar from '../Components/NavBar'
+import { Outlet } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
-function MainLayout({ children }) {
+export default function MainLayout() {
   return (
     <>
-      <Navbar />
-      <main>{children}</main>
+      <NavBar />
+      <main className="max-w-6xl mx-auto">
+        <Outlet />
+      </main>
     </>
-  )
+  );
 }
-
-export default MainLayout

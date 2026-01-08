@@ -1,30 +1,34 @@
-function Navbar() {
+import { NavLink } from "react-router-dom";
+
+export default function NavBar() {
   return (
-    <header className="w-full bg-gray-950 border-b border-gray-800">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        
-        <h1 className="text-white font-bold text-xl">
-          Ronaldo
-        </h1>
+    <nav className="bg-gray-900 text-white px-6 py-4 flex gap-6">
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? "text-blue-400 font-semibold" : "hover:text-blue-300"
+        }
+      >
+        Home
+      </NavLink>
 
-        <ul className="flex gap-6 text-gray-400">
-          <li className="hover:text-white transition cursor-pointer">
-            Home
-          </li>
-          <li className="hover:text-white transition cursor-pointer">
-            Projects
-          </li>
-          <li className="hover:text-white transition cursor-pointer">
-            About
-          </li>
-          <li className="hover:text-white transition cursor-pointer">
-            Contact
-          </li>
-        </ul>
+      <NavLink
+        to="/projects"
+        className={({ isActive }) =>
+          isActive ? "text-blue-400 font-semibold" : "hover:text-blue-300"
+        }
+      >
+        Projects
+      </NavLink>
 
-      </nav>
-    </header>
-  )
+      <NavLink
+        to="/contact"
+        className={({ isActive }) =>
+          isActive ? "text-blue-400 font-semibold" : "hover:text-blue-300"
+        }
+      >
+        Contact
+      </NavLink>
+    </nav>
+  );
 }
-
-export default Navbar
