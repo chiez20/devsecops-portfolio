@@ -1,19 +1,20 @@
-// src/pages/About.jsx
 import React from "react";
 import { motion } from "framer-motion";
-
-const skills = [
-  { name: "React", level: 85 },
-  { name: "Tailwind CSS", level: 80 },
-  { name: "JavaScript", level: 90 },
-  { name: "Python", level: 70 },
-  { name: "Git & GitHub", level: 85 },
-  { name: "DevSecOps Concepts", level: 60 },
-  { name: "Docker", level: 50 },
-  { name: "AWS / Cloud", level: 50 },
-];
+import { FaReact, FaPython, FaDocker, FaAws, FaTools } from "react-icons/fa";
+import { SiTailwindcss, SiJavascript, SiGit } from "react-icons/si";
 
 export default function About() {
+  const skills = [
+    { name: "React", level: 85, icon: <FaReact className="text-blue-500 w-6 h-6" /> },
+    { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss className="text-teal-500 w-6 h-6" /> },
+    { name: "JavaScript", level: 90, icon: <SiJavascript className="text-yellow-500 w-6 h-6" /> },
+    { name: "Python", level: 70, icon: <FaPython className="text-blue-600 w-6 h-6" /> },
+    { name: "Git & GitHub", level: 85, icon: <SiGit className="text-red-500 w-6 h-6" /> },
+    { name: "DevSecOps Concepts", level: 60, icon: <FaTools className="text-gray-800 w-6 h-6" /> },
+    { name: "Docker", level: 50, icon: <FaDocker className="text-blue-400 w-6 h-6" /> },
+    { name: "AWS / Cloud", level: 50, icon: <FaAws className="text-orange-400 w-6 h-6" /> },
+  ];
+
   return (
     <motion.section
       id="about"
@@ -25,7 +26,7 @@ export default function About() {
     >
       <h2 className="text-3xl font-bold text-center mb-8">About Me & Skills</h2>
 
-      {/* About */}
+      {/* About text */}
       <div className="mb-12 text-center max-w-3xl mx-auto">
         <p className="text-gray-700 mb-4">
           Hi! I'm Ronaldo Choez, a Frontend Developer aiming to grow into DevSecOps.
@@ -49,6 +50,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
+            <div className="mb-2">{skill.icon}</div>
             <h3 className="font-semibold mb-2">{skill.name}</h3>
             <div className="w-full bg-gray-300 rounded-full h-3">
               <motion.div
